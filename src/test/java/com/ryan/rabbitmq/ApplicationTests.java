@@ -65,7 +65,7 @@ public class ApplicationTests {
         messageProperties.getHeaders().put("type", "自定义消息类型...");
         Message message = new Message("Hello RabbitMQ".getBytes(), messageProperties);
 
-        rabbitTemplate.convertAndSend("topic001", "spring.amqp", "hello rabbit");
+//        rabbitTemplate.convertAndSend("topic001", "spring.amqp", "hello rabbit");
 
         rabbitTemplate.convertAndSend("topic001", "spring.amqp", message, new MessagePostProcessor() {
             @Override
@@ -76,8 +76,19 @@ public class ApplicationTests {
                 return message;
             }
         });
+    }
 
+    @Test
+    public void testSendMessage4Text() throws Exception {
+        //1 创建消息
+        MessageProperties messageProperties = new MessageProperties();
+        messageProperties.setContentType("text/plain");
+        Message message = new Message("mq 消息1234".getBytes(), messageProperties);
 
+        rabbitTemplate.send("topic001", "spring.abc", message);
+
+        rabbitTemplate.convertAndSend("topic001", "abc.spring", "hello object message send!");
+        rabbitTemplate.convertAndSend("topic001", "mq.abc", "hello object message send!");
     }
 
 
