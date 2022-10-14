@@ -180,8 +180,8 @@ public class RabbitMQConfig {
 //         DefaultJackson2JavaTypeMapper javaTypeMapper = new DefaultJackson2JavaTypeMapper();
 //
 //         Map<String, Class<?>> idClassMapping = new HashMap<String, Class<?>>();
-//         idClassMapping.put("order", com.ryan.rabbitmq.Order.class);
-//         idClassMapping.put("packaged", com.ryan.rabbitmq.Packaged.class);
+//         idClassMapping.put("order", com.ryan.rabbitmq.entity.Order.class);
+//         idClassMapping.put("packaged", com.ryan.rabbitmq.entity.Packaged.class);
 //         javaTypeMapper.setIdClassMapping(idClassMapping);
 //
 //         jackson2JsonMessageConverter.setJavaTypeMapper(javaTypeMapper);

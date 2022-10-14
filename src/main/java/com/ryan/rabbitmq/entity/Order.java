@@ -1,4 +1,4 @@
-package com.ryan.rabbitmq;
+package com.ryan.rabbitmq.entity;
 
 public class Order {
 

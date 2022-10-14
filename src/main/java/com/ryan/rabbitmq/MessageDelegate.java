@@ -1,5 +1,8 @@
 package com.ryan.rabbitmq;
 
+import com.ryan.rabbitmq.entity.Order;
+import com.ryan.rabbitmq.entity.Packaged;
+
 import java.io.File;
 import java.util.Map;
 

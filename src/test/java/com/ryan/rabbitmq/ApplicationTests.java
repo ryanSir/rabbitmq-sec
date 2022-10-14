@@ -1,6 +1,8 @@
 package com.ryan.rabbitmq;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ryan.rabbitmq.entity.Order;
+import com.ryan.rabbitmq.entity.Packaged;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.AmqpException;
@@ -126,7 +128,7 @@ public class ApplicationTests {
         MessageProperties messageProperties = new MessageProperties();
         //这里注意一定要修改contentType为 application/json
         messageProperties.setContentType("application/json");
-        messageProperties.getHeaders().put("__TypeId__", "com.ryan.rabbitmq.Order");
+        messageProperties.getHeaders().put("__TypeId__", "com.ryan.rabbitmq.entity.Order");
         Message message = new Message(json.getBytes(), messageProperties);
 
         rabbitTemplate.send("topic001", "spring.order", message);
